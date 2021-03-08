@@ -11,7 +11,7 @@
 class Button
 {
     public:
-        // Button(pin, dbTime, puEnable, invert) instantiates a button object.
+        // Button(pin, dbTime, pinMode, invert) instantiates a button object.
         //
         // Required parameter:
         // pin      The Arduino pin the button is connected to
@@ -79,7 +79,7 @@ class ToggleButton : public Button
     
         // constructor is similar to Button, but includes the initial state for the toggle.
         ToggleButton(uint8_t pin, bool initialState=false, uint32_t dbTime=25, int pinMode=INPUT_PULLUP, uint8_t invert=true)
-            : Button(pin, dbTime, puEnable, invert), m_toggleState(initialState) {}
+            : Button(pin, dbTime, pinMode, invert), m_toggleState(initialState) {}
 
         // read the button and return its state.
         // should be called frequently.
