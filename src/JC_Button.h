@@ -18,10 +18,10 @@ class Button
         //
         // Optional parameters:
         // dbTime   Debounce time in milliseconds (default 25ms)
-        // puEnable true to enable the AVR internal pullup resistor (default true)
+        // pinMode  Input type for the button (default INPUT_PULLUP)
         // invert   true to interpret a low logic level as pressed (default true)
-        Button(uint8_t pin, uint32_t dbTime=25, uint8_t puEnable=true, uint8_t invert=true)
-            : m_pin(pin), m_dbTime(dbTime), m_puEnable(puEnable), m_invert(invert) {}
+        Button(uint8_t pin, uint32_t dbTime=25, uint8_t pinMode=INPUT_PULLUP, uint8_t invert=true)
+            : m_pin(pin), m_dbTime(dbTime), m_pinMode(pinMode), m_invert(invert) {}
 
         // Initialize a Button object and the pin it's connected to
         void begin();
@@ -62,7 +62,7 @@ class Button
     private:
         uint8_t m_pin;          // arduino pin number connected to button
         uint32_t m_dbTime;      // debounce time (ms)
-        bool m_puEnable;        // internal pullup resistor enabled
+        int m_pinMode;        // internal pullup resistor enabled
         bool m_invert;          // if true, interpret logic low as pressed, else interpret logic high as pressed
         bool m_state;           // current button state, true=pressed
         bool m_lastState;       // previous button state
@@ -78,7 +78,7 @@ class ToggleButton : public Button
     public:
     
         // constructor is similar to Button, but includes the initial state for the toggle.
-        ToggleButton(uint8_t pin, bool initialState=false, uint32_t dbTime=25, uint8_t puEnable=true, uint8_t invert=true)
+        ToggleButton(uint8_t pin, bool initialState=false, uint32_t dbTime=25, int pinMode=INPUT_PULLUP, uint8_t invert=true)
             : Button(pin, dbTime, puEnable, invert), m_toggleState(initialState) {}
 
         // read the button and return its state.
