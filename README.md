@@ -38,7 +38,11 @@ The constructor defines a button object.
 **pin:** Arduino pin number that the button is connected to *(byte)*  
 ##### Optional parameters
 **dbTime:** Debounce time in milliseconds. Defaults to 25ms if not given. *(unsigned long)*  
+<<<<<<< HEAD
 **pinMode:** *true* to enable the microcontroller's internal pull-up resistor, else *false*. Defaults to *true* if not given. *(bool)*  
+=======
+**pinMode:** *INPUT_PULLUP* or *INPUT_PULLDOWN* to enable microcontrollers builtin resistors. *(INPUT_PULLUP)*  
+>>>>>>> cfcad8ffc5245e5cf91e31f6e62b4d8afb549827
 **invert:** *false* interprets a high logic level to mean the button is pressed, *true* interprets a low level as pressed. *true* should be used when a pull-up resistor is employed, *false* for a pull-down resistor. Defaults to *true* if not given. *(bool)*
 ##### Returns
 None.
@@ -65,7 +69,11 @@ The constructor defines a toggle button object, which has "push-on, push-off" fu
 ##### Optional parameters
 **initialState:** Initial state for the button. Defaults to off (false) if not given. *(bool)*  
 **dbTime:** Debounce time in milliseconds. Defaults to 25ms if not given. *(unsigned long)*  
+<<<<<<< HEAD
 **pinMode:** *true* to enable the microcontroller's internal pull-up resistor, else *false*. Defaults to *true* if not given. *(bool)*  
+=======
+**pinMode:** *INPUT_PULLUP* or *INPUT_PULLDOWN* to enable microcontrollers builtin resistors. *(INPUT_PULLUP)*  
+>>>>>>> cfcad8ffc5245e5cf91e31f6e62b4d8afb549827
 **invert:** *false* interprets a high logic level to mean the button is pressed, *true* interprets a low level as pressed. *true* should be used when a pull-up resistor is employed, *false* for a pull-down resistor. Defaults to *true* if not given. *(bool)*
 ##### Returns
 None.
